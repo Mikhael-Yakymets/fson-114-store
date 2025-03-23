@@ -12,3 +12,9 @@ export async function getCategories() {
   console.log(data);
   return data;
 }
+
+export async function getProducts(currentPage = 1) {
+  const { data } = await axios(`?limit=12&skip=${(currentPage - 1) * 12}`);
+
+  return data.products;
+}
